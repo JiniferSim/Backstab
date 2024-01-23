@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 787477652025036075}
   - component: {fileID: 1152517565619042492}
   - component: {fileID: 4013744315019235648}
+  - component: {fileID: 7130740758377461193}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -241,3 +242,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 30
   changeDirectionInterval: 3
+--- !u!114 &7130740758377461193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5430315076033996345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee7f2f73eb5cf47bd8997d92def2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sightRange: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  canvas: {fileID: 0}
+  iconImage: {fileID: 0}
+  OpenedEye: {fileID: 21300000, guid: fa899221984210d4cb9767fb8e8689d0, type: 3}
+  ClosedEye: {fileID: 21300000, guid: 8b4e0eba445ff514eb907f46999d5bec, type: 3}

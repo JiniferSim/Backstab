@@ -337,8 +337,8 @@ Transform:
   m_GameObject: {fileID: 186308418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.58, y: -0, z: 0.08}
-  m_LocalScale: {x: 1.8287, y: 1.8287, z: 1.8287}
+  m_LocalPosition: {x: -4.5774, y: -0, z: 7.2374}
+  m_LocalScale: {x: 6.0990267, y: 6.0990267, z: 6.0990267}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -502,6 +502,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1465431239}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: iconImage
+      value: 
+      objectReference: {fileID: 1425856739}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,7 +842,7 @@ GameObject:
   - component: {fileID: 1071396133}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,8 +946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47527c181ec85c946a8d5a44d6f542dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 4
-  forwardSpeed: 7
+  rotateSpeed: 2
+  forwardSpeed: 5
 --- !u!114 &1071396133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,6 +1265,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1465431239}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: iconImage
+      value: 
+      objectReference: {fileID: 1425856739}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1371,6 +1387,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1465431239}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1071396131}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: iconImage
+      value: 
+      objectReference: {fileID: 1425856739}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
