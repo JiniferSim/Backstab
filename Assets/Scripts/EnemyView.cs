@@ -6,18 +6,18 @@ using UnityEngine;
 public class EnemyView : MonoBehaviour
 {
     private Transform player;
-    public float sightRange = 5f;
     public LayerMask obstacleLayer;
 
-    public Canvas canvas;
-    public Image iconImage;
-    public Sprite OpenedEye;
-    public Sprite ClosedEye;
+    private Color baseColor;
+    private Renderer baseRenderer;
+    [SerializeField] private Color watcherColor;
 
     private bool isPlayerInSight = false;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        baseRenderer = GetComponent<Renderer>();
+        baseColor = baseRenderer.material.color;
     }
     void Update()
     {
@@ -30,7 +30,6 @@ public class EnemyView : MonoBehaviour
         {
             isPlayerInSight = false;
         }
-        UpdateCanvasIcon();
     }
 
     public bool IsPlayerInSight()
@@ -38,35 +37,23 @@ public class EnemyView : MonoBehaviour
         Vector3 directionToPlayer = player.position - transform.position;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, directionToPlayer, out hit, sightRange, ~obstacleLayer))
+        if (Physics.Raycast(transform.position, directionToPlayer, out hit, obstacleLayer))
         {
             // Check if the hit object is the player
             if (hit.collider.CompareTag("Player"))
             {
                 // Check if the player is within the field of view
-                float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer.normalized);
-                if (angleToPlayer < 90f)
+                float dotProductToPlayer = Vector3.Dot(transform.forward, directionToPlayer.normalized);
+                if (dotProductToPlayer >= 0)
                 {
+                    Backsatab.Instance.IsPlayerVisible(this, true);
+                    baseRenderer.material.color = watcherColor;
                     return true; // Player is within sight
                 }
             }
         }
+        Backsatab.Instance.IsPlayerVisible(this, false);
+        baseRenderer.material.color = baseColor;
         return false;
-    }
-
-    void UpdateCanvasIcon()
-    {
-        if (canvas != null && iconImage != null)
-        {
-            if (isPlayerInSight)
-            {
-                iconImage.sprite = OpenedEye;
-            }
-            else
-            {
-                iconImage.sprite = ClosedEye;
-            }
-        }
-
     }
 }
