@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyView : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float sightRange = 5f;
     public LayerMask obstacleLayer;
 
@@ -15,7 +15,10 @@ public class EnemyView : MonoBehaviour
     public Sprite ClosedEye;
 
     private bool isPlayerInSight = false;
-
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void Update()
     {
         if (IsPlayerInSight())
