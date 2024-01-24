@@ -33,7 +33,7 @@ public class EnemyView : MonoBehaviour
         UpdateCanvasIcon();
     }
 
-    bool IsPlayerInSight()
+    public bool IsPlayerInSight()
     {
         Vector3 directionToPlayer = player.position - transform.position;
 

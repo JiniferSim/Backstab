@@ -211,7 +211,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4228779628
+    rgba: 4279111276
   m_fontColor: {r: 0.4245283, g: 0.054067288, b: 0.054067288, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 1071396128}
   - component: {fileID: 1071396132}
   - component: {fileID: 1071396133}
+  - component: {fileID: 1071396134}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1120,6 +1121,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8691d91a8f6d1644e8b1f4d34a224e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1071396134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071396127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f8581f51b4bb94cbe6441d5cbd9446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 1500950}
+  animator: {fileID: 1500949}
+  playerTransform: {fileID: 1071396131}
+  enemyTransform: {fileID: 183196020727563023, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
 --- !u!1 &1300592947
 GameObject:
   m_ObjectHideFlags: 0
