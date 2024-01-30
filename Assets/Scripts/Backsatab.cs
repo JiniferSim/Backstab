@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Backsatab : MonoBehaviour
+public class Backsatab : EnemyView
 {
     public static Backsatab Instance;
     public TMP_Text textMeshPro;
     public Animator animator;
     public Transform playerTransform;
     public Transform enemyTransform;
+    private int textAnimationCount = 0;
 
     public Canvas canvas;
     public Image iconImage;
@@ -18,11 +19,13 @@ public class Backsatab : MonoBehaviour
     public Sprite ClosedEye;
 
     private bool isShowingText = false;
+    public bool seen = false;
 
     [SerializeField] private List<EnemyView> watchers = new List<EnemyView>();
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         Instance = this;
         if (textMeshPro != null)
         {
@@ -32,12 +35,17 @@ public class Backsatab : MonoBehaviour
 
     void Update()
     {
-        if (!isShowingText && IsPlayerBehindEnemy() && watchers.Count == 0)
+        if (!isShowingText && IsPlayerBehindEnemy() && !IsPlayerVisibleToAnyEnemy(currentEnemy, visible) && watchers.Count == 0)
         {
-            // Enable the text animation
             textMeshPro.enabled = true;
             animator.Play("text_anim");
             StartCoroutine(HideTextAfterDelay(2f));
+            textAnimationCount++;
+
+            if (textAnimationCount >= 3)
+            {
+                StartCoroutine(DisableTextAfterThreeAnimations());
+            }
         }
 
         UpdateCanvasIcon();
@@ -51,15 +59,16 @@ public class Backsatab : MonoBehaviour
         return Mathf.Abs(angle) < 90f;
     }
 
-    public void IsPlayerVisible(EnemyView enemy, bool visible)
+    private bool IsPlayerVisibleToAnyEnemy(EnemyView currentEnemy, bool visible)
     {
-       if(visible && !watchers.Contains(enemy))
+        foreach (var enemy in watchers)
         {
-            watchers.Add(enemy);
-        } else if (!visible && watchers.Contains(enemy))
-        {
-            watchers.Remove(enemy);
+            if (currentEnemy.seen)
+            {
+                return true;
+            }
         }
+        return false;
     }
 
     void UpdateCanvasIcon()
@@ -78,11 +87,25 @@ public class Backsatab : MonoBehaviour
 
     }
 
+    private IEnumerator DisableTextAfterThreeAnimations()
+    {
+        yield return new WaitForSeconds(2f);
+        textMeshPro.enabled = false;
+        textAnimationCount = 0;
+    }
     private IEnumerator HideTextAfterDelay(float delay)
     {
         isShowingText = true;
         yield return new WaitForSeconds(delay);
         isShowingText = false;
-        animator.StopPlayback();
+
+        if (animator != null)
+        {
+            animator.StopPlayback();
+        }
+        if (textMeshPro != null)
+        {
+            textMeshPro.enabled = false;
+        }
     }
 }
