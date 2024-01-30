@@ -7,12 +7,12 @@ public class EnemyView : MonoBehaviour
 {
     private Transform player;
     public LayerMask obstacleLayer;
+    public bool seen = false;
 
     private Color baseColor;
     private Renderer baseRenderer;
     [SerializeField] private Color watcherColor;
 
-    private bool isPlayerInSight = false;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -21,15 +21,11 @@ public class EnemyView : MonoBehaviour
     }
     void Update()
     {
-        if (IsPlayerInSight())
-        {
-            Debug.Log("Player is in sight!");
-            isPlayerInSight = true;
-        }
-        else
-        {
-            isPlayerInSight = false;
-        }
+        seen = IsPlayerInSight();
+        Backsatab.Instance.IsPlayerVisible(this, seen);
+
+        baseRenderer.material.color = seen ? watcherColor : baseColor;
+
     }
 
     public bool IsPlayerInSight()
@@ -37,23 +33,26 @@ public class EnemyView : MonoBehaviour
         Vector3 directionToPlayer = player.position - transform.position;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, directionToPlayer, out hit, obstacleLayer))
+
+
+        float dotProductToPlayer = Vector3.Dot(transform.forward, directionToPlayer.normalized);
+
+        if (dotProductToPlayer > 0.6f) // Adjust the threshold angle as needed
         {
-            // Check if the hit object is the player
-            if (hit.collider.CompareTag("Player"))
+            Debug.DrawRay(transform.position, (directionToPlayer) * 100);
+            if (Physics.Raycast(transform.position, directionToPlayer, out hit,1000, obstacleLayer))
             {
-                // Check if the player is within the field of view
-                float dotProductToPlayer = Vector3.Dot(transform.forward, directionToPlayer.normalized);
-                if (dotProductToPlayer >= 0)
+                Debug.Log("I hit " + hit.collider.name);
+                if (hit.collider.CompareTag("Player"))
                 {
-                    Backsatab.Instance.IsPlayerVisible(this, true);
-                    baseRenderer.material.color = watcherColor;
                     return true; // Player is within sight
                 }
             }
+            else return false;
         }
-        Backsatab.Instance.IsPlayerVisible(this, false);
-        baseRenderer.material.color = baseColor;
+            
+        
+
         return false;
     }
 }

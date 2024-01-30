@@ -19,12 +19,15 @@ public class Backsatab : MonoBehaviour
 
     private bool isShowingText = false;
 
-    private List<EnemyView> watchers = new List<EnemyView>();
+    [SerializeField] private List<EnemyView> watchers = new List<EnemyView>();
 
     void Start()
     {
         Instance = this;
-        //Show text if enemy doesn't see player, if player looks directly at the enemy, player is behind enemy
+        if (textMeshPro != null)
+        {
+            textMeshPro.enabled = false;
+        }
     }
 
     void Update()
@@ -57,10 +60,6 @@ public class Backsatab : MonoBehaviour
         {
             watchers.Remove(enemy);
         }
-        // Implement logic to check if the enemy sees the player
-        // You might use raycasting or other techniques to determine line of sight
-        // Return true if the player is in sight, false otherwise
-        //return false;
     }
 
     void UpdateCanvasIcon()

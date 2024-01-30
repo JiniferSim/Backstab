@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 437473501}
   m_Layer: 0
   m_Name: face
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -658,6 +658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5430315076033996345, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: canvas
       value: 
@@ -685,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.r
       value: 0.9427508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 1032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1017,7 +1025,7 @@ GameObject:
   - component: {fileID: 1071396132}
   - component: {fileID: 1071396133}
   - component: {fileID: 1071396134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1157,6 +1165,7 @@ MonoBehaviour:
   iconImage: {fileID: 1425856739}
   OpenedEye: {fileID: 21300000, guid: fa899221984210d4cb9767fb8e8689d0, type: 3}
   ClosedEye: {fileID: 21300000, guid: 8b4e0eba445ff514eb907f46999d5bec, type: 3}
+  watchers: []
 --- !u!1 &1300592947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5430315076033996345, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.a
       value: 1
@@ -1478,6 +1491,10 @@ PrefabInstance:
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.r
       value: 0.9427508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 1032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1536,6 +1553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5430315076033996345, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.a
       value: 1
@@ -1551,6 +1572,10 @@ PrefabInstance:
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.r
       value: 0.9427508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 1032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1609,6 +1634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5430315076033996345, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: canvas
       value: 
@@ -1636,6 +1665,10 @@ PrefabInstance:
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.r
       value: 0.9427508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 1032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1751,6 +1784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5430315076033996345, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: canvas
       value: 
@@ -1778,6 +1815,10 @@ PrefabInstance:
     - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
       propertyPath: watcherColor.r
       value: 0.9427508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130740758377461193, guid: 1d6cfb84157670a4da86a90f439625cb, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 1032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
