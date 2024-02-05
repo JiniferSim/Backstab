@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Backsatab : EnemyView
+public class Backsatab : MonoBehaviour
 {
     public static Backsatab Instance;
     public TMP_Text textMeshPro;
@@ -35,7 +35,7 @@ public class Backsatab : EnemyView
 
     void Update()
     {
-        if (!isShowingText && IsPlayerBehindEnemy() && !IsPlayerVisibleToAnyEnemy(currentEnemy, visible) && watchers.Count == 0)
+        if (!isShowingText && IsPlayerBehindEnemy() && !IsPlayerVisibleToAnyEnemy(this, seen) && watchers.Count == 0)
         {
             textMeshPro.enabled = true;
             animator.Play("text_anim");
@@ -59,11 +59,11 @@ public class Backsatab : EnemyView
         return Mathf.Abs(angle) < 90f;
     }
 
-    private bool IsPlayerVisibleToAnyEnemy(EnemyView currentEnemy, bool visible)
+    private bool IsPlayerVisibleToAnyEnemy(Backsatab currentBacksatab, bool visible)
     {
-        foreach (var enemy in watchers)
+        foreach (var enemy in currentBacksatab.watchers)
         {
-            if (currentEnemy.seen)
+            if (enemy.seen)
             {
                 return true;
             }

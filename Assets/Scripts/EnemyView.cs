@@ -22,7 +22,7 @@ public class EnemyView : MonoBehaviour
     void Update()
     {
         seen = IsPlayerInSight();
-        Backsatab.Instance.IsPlayerVisibleToAnyEnemy(this, seen);
+        //Backsatab.Instance.IsPlayerVisibleToAnyEnemy(this);
 
         baseRenderer.material.color = seen ? watcherColor : baseColor;
 
