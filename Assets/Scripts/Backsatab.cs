@@ -39,7 +39,6 @@ public class Backsatab : EnemyView
             textMeshPro.enabled = true;
             animator.Play("text_anim");
             StartCoroutine(HideTextAfterDelay(2f));
-            UpdateCanvasIcon();
 
         }
 
@@ -58,16 +57,8 @@ public class Backsatab : EnemyView
     {
         if (canvas != null && iconImage != null)
         {
-            if (watchers.Count > 0)
-            {
-                iconImage.sprite = OpenedEye;
-            }
-            else
-            {
-                iconImage.sprite = ClosedEye;
-            }
+            iconImage.sprite = (watchers.Count > 0) ? OpenedEye : ClosedEye;
         }
-
     }
 
     private IEnumerator HideTextAfterDelay(float delay)

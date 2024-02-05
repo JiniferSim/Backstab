@@ -1157,6 +1157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f8581f51b4bb94cbe6441d5cbd9446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  seen: 0
+  watcherColor: {r: 0, g: 0, b: 0, a: 0}
   textMeshPro: {fileID: 1500950}
   animator: {fileID: 1500949}
   playerTransform: {fileID: 1071396131}
@@ -1165,6 +1170,7 @@ MonoBehaviour:
   iconImage: {fileID: 1425856739}
   OpenedEye: {fileID: 21300000, guid: fa899221984210d4cb9767fb8e8689d0, type: 3}
   ClosedEye: {fileID: 21300000, guid: 8b4e0eba445ff514eb907f46999d5bec, type: 3}
+  seen: 0
   watchers: []
 --- !u!1 &1300592947
 GameObject:
